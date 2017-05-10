@@ -10,7 +10,7 @@ $(document).ready(function(){
     var newState = $("input#new-state").val();
 
     var newContact = new Contact(firstName,lastName);
-    $("ul#contacts").append("<li><span>" + "Your first name" + newContact.firstName + "</span></li>");
+    $("ul#contacts").append("<li><span>" + "Your first name" + newContact.fullName() + "</span></li>");
 
     $("input#new-first-name").val("");
     $("input#new-last-name").val("");
@@ -29,6 +29,6 @@ $(document).ready(function(){
     }
 
 
-    // Contact.prototype.fullName(function(){
-    //   return this.firstName + " " + this.lastname
-    // });
+    Contact.prototype.fullName = function(firstName, lastName){
+      return this.firstName + " " + this.lastName;
+    }
